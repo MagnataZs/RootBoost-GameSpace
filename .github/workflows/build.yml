@@ -1,0 +1,36 @@
+name: Build RootBoost Game Space
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: "platform-tools platforms;android-35 build-tools;35.0.0"
+      - name: Compilar APK launcher
+        run: ./gradlew assembleDebug --no-daemon
+      - name: Empacotar módulo Magisk
+        run: |
+          set -e
+          rm -rf build/module
+          mkdir -p build/module
+          cp -r module/* build/module/
+          cp app/build/outputs/apk/debug/app-debug.apk build/module/RootBoostGameSpace.apk
+          cd build/module
+          zip -r ../../RootBoost-GameSpace-0.2.0-alpha.zip .
+      - uses: actions/upload-artifact@v4
+        with:
+          name: RootBoost-GameSpace-0.2.0-alpha
+          path: |
+            app/build/outputs/apk/debug/app-debug.apk
+            RootBoost-GameSpace-0.2.0-alpha.zip

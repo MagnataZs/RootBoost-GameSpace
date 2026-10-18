@@ -9,6 +9,8 @@ Este repositório inicia uma nova linha do projeto usando o pacote AstralOpt for
 ## O que esta entrega contém
 
 - `dist/AstralOpt-2.0-RootBoost-GameSpace-base.zip`: pacote base fornecido pelo usuário, preservado para teste no Magisk.
+- `app/`: APK launcher próprio do RootBoost Game Space, com Activity visível na gaveta.
+- `module/`: módulo Magisk que instala o APK e não inicia daemon de desempenho.
 - documentação da arquitetura nova;
 - changelog em português;
 - regras para artes, sessões e rollback;
@@ -39,7 +41,17 @@ Este repositório inicia uma nova linha do projeto usando o pacote AstralOpt for
 - Equilibrado;
 - Eco.
 
-O modo automático e o monitoramento residente ficarão desligados por padrão.
+O modo automático e o monitoramento residente ficam desligados por padrão.
+
+## Instalação da alpha atual
+
+1. Baixe o ZIP `RootBoost-GameSpace-0.2.0-alpha` na release.
+2. Instale-o pelo Magisk como módulo.
+3. Reinicie se o Magisk solicitar.
+4. Procure **RootBoost Game Space** na gaveta de aplicativos.
+5. Abra o painel e selecione um jogo.
+
+O APK controlador é instalado pelo `customize.sh`. O módulo não possui `service.sh`, portanto não inicia um monitor permanente apenas por ser instalado.
 
 ## Artes dos jogos
 

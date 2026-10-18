@@ -21,7 +21,25 @@
 - escudo de chamadas integrado ao Game Space;
 - wallpapers automáticos por jogo.
 
-## Próxima versão — 0.2.0-alpha
+## 0.2.0-alpha — APK controlador e módulo limpo
+
+### Incluído
+
+- APK Android real com Activity launcher.
+- Ícone **RootBoost Game Space** visível na gaveta.
+- Carrossel de jogos reconhecidos pela categoria de jogos do Android.
+- Arte de fundo gerada a partir do app selecionado.
+- Status de bateria, temperatura e root.
+- Botão **Jogar** para abrir o jogo selecionado.
+- Aba de configurações em português.
+- Módulo Magisk que instala o APK automaticamente.
+- Módulo sem `service.sh` e sem daemon de desempenho persistente.
+
+### Correção importante
+
+Esta versão corrige o problema da alpha anterior: o APK do painel agora é um aplicativo launcher de verdade. A versão AstralOpt anterior não aparecia na gaveta porque seu APK era usado como processo `app_process`, não como Activity.
+
+## Próxima versão — 0.3.0-alpha
 
 - APK controlador próprio em português;
 - tela Jogos com carrossel;
