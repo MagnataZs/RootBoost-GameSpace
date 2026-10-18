@@ -31,7 +31,7 @@ public class GameSpaceActivity extends Activity {
 
     private List<GameInfo> getGames() {
         Intent query = new Intent(Intent.ACTION_MAIN);
-        query.addCategory(Intent.CATEGORY_GAME);
+        query.addCategory("android.intent.category.GAME");
         List<ResolveInfo> found = getPackageManager().queryIntentActivities(query, PackageManager.MATCH_ALL);
         ArrayList<GameInfo> games = new ArrayList<>();
         for (ResolveInfo info : found) {
